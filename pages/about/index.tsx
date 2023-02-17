@@ -28,11 +28,11 @@ const About = () => {
       <div className="md:max-w-[70%] md:mx-auto  lg:text-center lg:min-h-[70vh] md:grid place-content-center gap-2">
         <h2 className="text-3xl font-bold my-8">About</h2>
         <p className="text-[16px] text-gray-500  my-5">
-          Mlouye’s founder and creative director Meb Rure hails from an
-          industrial design background. In 2015, Meb decided to change gears and
-          turn her energy towards Mlouye, a collection of exceptional handbags.
-          Focusing on quality material, good design, craftsmanship and
-          sustainability, Mlouye reflects the epitome of quality over quantity.
+          Mlouye founder and creative director Meb Rure hails from an industrial
+          design background. In 2015, Meb decided to change gears and turn her
+          energy towards Mlouye, a collection of exceptional handbags. Focusing
+          on quality material, good design, craftsmanship and sustainability,
+          Mlouye reflects the epitome of quality over quantity.
         </p>
         <p className="text-[16px] text-gray-500  my-5">
           Meb was highly inspired by the Bauhaus Movement artists and
