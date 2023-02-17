@@ -69,9 +69,10 @@ const Product = () => {
   });
 
   const newPrice = () => {
-    return (data.price - (data.price * data.discountPercentage) / 100).toFixed(
-      2
-    );
+    return (
+      data?.price -
+      (data?.price * data?.discountPercentage) / 100
+    ).toFixed(2);
   };
 
   const addToCart = async () => {

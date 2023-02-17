@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import useData from "../../hooks/useGetData";
 import Card from "../../component/Card";
 import useProtectedRoute from "../../hooks/useProtectedRoute";
+import Loader from "../../component/Loader";
 
 const Products = () => {
   useProtectedRoute();
@@ -52,7 +53,7 @@ const Products = () => {
     return () => clearInterval(interval);
   }, [direction]);
 
-  if (isLoading || catLoading) return <>Loading...</>;
+  if (isLoading || catLoading) return <Loader />;
   if (error || catError) console.log(error);
 
   const categoryList = [...catData, "All"].reverse().map((c, i) => {
