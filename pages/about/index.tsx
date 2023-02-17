@@ -16,12 +16,12 @@ const About = () => {
             className="w-full h-[300px] bg-gray-100 flex items-center justify-center "
             key={i + image}
           >
-            <img
+            {/* <img
               src={image}
               alt="about images"
               className="w-[90%] h-[90%]"
               loading="lazy"
-            />
+            /> */}
           </div>
         ))}
       </div>

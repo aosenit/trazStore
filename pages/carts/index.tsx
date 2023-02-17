@@ -18,9 +18,9 @@ const Carts = () => {
       <div className="mx-8 md:w-[60%] md:mx-auto">
         <div className="flex justify-between items-center my-6">
           <h3 className="text-2xl">Your Cart</h3>
-          <a href="/products" className="text-[16px] underline">
+          {/* <a href="/products" className="text-[16px] underline">
             Continue Shopping{" "}
-          </a>
+          </a> */}
         </div>
 
         <div className="flex justify-between">
@@ -34,11 +34,11 @@ const Carts = () => {
             return (
               <div className="flex justify-between items-center " key={i}>
                 <div className="flex gap-3 items-center">
-                  <img
+                  {/* <img
                     src={cart.src}
                     alt="cart image"
                     className="w-[100px] h-[70px]"
-                  />
+                  /> */}
                   <p className="text-[14px]">{cart?.name}</p>
                 </div>
                 <h3 className="text-lg">{cart.quantity}</h3>

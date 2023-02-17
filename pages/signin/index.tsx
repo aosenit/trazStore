@@ -79,9 +79,9 @@ const SignIn: NextPage = () => {
               {loading ? "Loading..." : "Sign In"}
             </button>
           </div>
-          <a href="/signup" className="text-center underline ">
+          {/* <a href="/signup" className="text-center underline ">
             Create account
-          </a>
+          </a> */}
         </form>
       </div>
     </>

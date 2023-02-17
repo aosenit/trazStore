@@ -109,9 +109,9 @@ const SignUp: NextPage = () => {
               {loading ? "Loading..." : "Create"}
             </button>
           </div>
-          <a href="/signin" className="text-center underline ">
+          {/* <a href="/signin" className="text-center underline ">
             Already have an account
-          </a>
+          </a> */}
 
           {error && (
             <p className="text-[14px] bg-red-500 text-white px-2 py-1 text-center mx-8">
