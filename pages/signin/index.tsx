@@ -19,6 +19,7 @@ const initialState = {
 
 const SignIn: NextPage = () => {
   useProtectedRoute();
+  const router = useRouter();
   const [data, setData] = useState<ISignUp>(initialState);
   const { signIn, loading, error } = useRegister();
   const { dispatch } = useAuth();
@@ -79,9 +80,12 @@ const SignIn: NextPage = () => {
               {loading ? "Loading..." : "Sign In"}
             </button>
           </div>
-          {/* <a href="/signup" className="text-center underline ">
+          <p
+            onClick={() => router.push("/signup")}
+            className="text-center underline "
+          >
             Create account
-          </a> */}
+          </p>
         </form>
       </div>
     </>

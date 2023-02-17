@@ -3,10 +3,11 @@ import useProtectedRoute from "../../hooks/useProtectedRoute";
 import useCart from "../../hooks/useCart";
 import { useAuth } from "../../state-manager/useAuth";
 import { useCartState } from "../../state-manager/useCartState";
+import { useRouter } from "next/router";
 
 const Carts = () => {
   //   useProtectedRoute();
-
+  const router = useRouter();
   const { cartDoc } = useCartState();
   const total = cartDoc?.reduce(
     (acc: any, item: any) => acc + item.price * item.quantity,
@@ -18,9 +19,12 @@ const Carts = () => {
       <div className="mx-8 md:w-[60%] md:mx-auto">
         <div className="flex justify-between items-center my-6">
           <h3 className="text-2xl">Your Cart</h3>
-          {/* <a href="/products" className="text-[16px] underline">
+          <p
+            onClick={() => router.push("/products")}
+            className="text-[16px] underline cursor-pointer"
+          >
             Continue Shopping{" "}
-          </a> */}
+          </p>
         </div>
 
         <div className="flex justify-between">
@@ -34,11 +38,11 @@ const Carts = () => {
             return (
               <div className="flex justify-between items-center " key={i}>
                 <div className="flex gap-3 items-center">
-                  {/* <img
+                  <img
                     src={cart.src}
                     alt="cart image"
                     className="w-[100px] h-[70px]"
-                  /> */}
+                  />
                   <p className="text-[14px]">{cart?.name}</p>
                 </div>
                 <h3 className="text-lg">{cart.quantity}</h3>
