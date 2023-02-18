@@ -10,7 +10,7 @@ const Congrats = () => {
           <BsFillCheckCircleFill className="text-green-500 text-[25px]" />
         </div>
         <h3 className="text-2xl">We are on it</h3>
-        <p className="text-[16px] text-gray-500">
+        <p className="text-[16px] text-gray-500 text-center">
           Your Payment has been received, you will get notification for your
           order state
         </p>
