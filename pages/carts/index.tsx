@@ -42,7 +42,7 @@ const Carts = () => {
           onClick={() => router.push("/products")}
           className="text-[16px] underline cursor-pointer"
         >
-          Continue Shopping{" "}
+          Add Item{" "}
         </p>
       </div>
     );
