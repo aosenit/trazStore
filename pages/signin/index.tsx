@@ -46,7 +46,7 @@ const SignIn: NextPage = () => {
           content="This is the sign up page of the website."
         />
       </Head>
-      <div className="w-full h-[calc(100vh_-_100px)] pt-20">
+      <div className="w-full h-[calc(100vh_-_100px)] pt-[100px]">
         <h1 className="text-3xl font-bold text-center">Login</h1>
         <form onSubmit={handleSubmit} className="grid gap-4 pt-8">
           <div className="mx-8 grid gap-4  justify-center ">

@@ -9,7 +9,7 @@ const imagesArray = [
 
 const About = () => {
   return (
-    <section className="px-8 my-8 ">
+    <section className="px-8 my-8 pt-[100px]">
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {imagesArray.map((image, i) => (
           <div

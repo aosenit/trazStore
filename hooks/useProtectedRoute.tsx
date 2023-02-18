@@ -9,12 +9,24 @@ const useProtectedRoute = () => {
 
   useEffect(() => {
     const handleRouteChange = () => {
-      if (!token && isProtectedRoute(router.pathname)) {
+      if (
+        !token &&
+        isProtectedRoute(router.pathname) &&
+        router.pathname !== "/carts"
+      ) {
         router.replace("/signin");
       } else if (token && router.pathname === "/signin") {
         router.replace("/products");
       } else if (!token && isDynamicProtectedRoute(router.pathname)) {
-        router.replace("/signin");
+        router.replace("/signup");
+      } else if (token && router.pathname === "/carts") {
+        // Allow access to the cart page if the user is authenticated
+      } else if (
+        !token &&
+        isProtectedRoute(router.pathname) &&
+        router.pathname !== "/products"
+      ) {
+        router.replace("/products"); // Redirect to the products page for all other protected routes
       }
     };
 
@@ -25,7 +37,7 @@ const useProtectedRoute = () => {
 export default useProtectedRoute;
 
 const isProtectedRoute = (pathname: string) => {
-  const protectedRoutes = ["/products", "/carts", "/checkout"];
+  const protectedRoutes = ["/products"];
   return protectedRoutes.some((route) => pathname.includes(route));
 };
 

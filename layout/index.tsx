@@ -18,14 +18,14 @@ const Layout = ({ children }: any) => {
   };
 
   return (
-    <div data-theme={theme} className="h-full w-full">
+    <div data-theme={theme} className="h-full w-full ">
       <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
       </Head>
       {router.pathname !== "/404" && (
-        <header>
+        <header className="fixed top-0 left-0 w-full bg-white z-10 ">
           <Header setTheme={setTheme} theme={theme} />
         </header>
       )}

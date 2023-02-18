@@ -85,6 +85,7 @@ const Product = () => {
     };
     setLoading(true);
     setClicked(true);
+
     try {
       const docRef = await addDoc(collection(db, "cart"), cart);
 
@@ -99,7 +100,7 @@ const Product = () => {
   };
 
   return (
-    <div className="w-full overflow-hidden px-8 py-5">
+    <div className="w-full overflow-hidden px-8 py-5 pt-[150px]">
       <div className="lg:grid grid-cols-3 gap-8 lg:my-6">
         <div className="w-full carousel lg:col-span-2 lg:grid grid-cols-2 gap-4">
           {data?.images.map((image: string, i: number) => {
@@ -134,7 +135,13 @@ const Product = () => {
             >
               {loading ? "Loading..." : "Add to Cart"}
             </button>
-            <button className="bg-black w-full py-3 text-white cursor-pointer">
+            <button
+              className="bg-black w-full py-3 text-white cursor-pointer"
+              onClick={() => {
+                addToCart();
+                router.push("/carts");
+              }}
+            >
               Buy it now
             </button>
           </div>

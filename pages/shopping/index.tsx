@@ -2,7 +2,7 @@ import React from "react";
 
 const Shoping = () => {
   return (
-    <section className="my-5 mb-14">
+    <section className="my-5 mb-14 pt-[100px]">
       <div className=" px-8 md:max-w-[70%] md:mx-auto  lg:text-center lg:min-h-[60vh] lg:flex flex-col justify-center">
         <h2 className="text-3xl font-bold my-8">Shoping</h2>
         <p className="text-[16px] text-gray-500 my-5">

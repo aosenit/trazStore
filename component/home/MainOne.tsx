@@ -3,8 +3,6 @@ import useAllProducts from "../../hooks/useAllProducts";
 
 import { useRouter } from "next/router";
 import Loader from "../Loader";
-import useData from "../../hooks/useGetData";
-import useCategory from "../../state-manager/useCategory";
 
 const MainOne = () => {
   const { products: data, isLoading, isError } = useAllProducts();
@@ -26,7 +24,7 @@ const MainOne = () => {
         </div>
         <div className="px-6 py-4">
           <div className="font-bold text-sm mb-2">{item.description}</div>
-          <p className=" text-3xl text-green-400">${item.price}</p>
+          <p className=" text-2xl ">${item.price}</p>
         </div>
       </div>
     );

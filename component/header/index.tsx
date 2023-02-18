@@ -6,6 +6,7 @@ import { useAuth } from "../../state-manager/useAuth";
 import { useCartState } from "../../state-manager/useCartState";
 import useCart from "../../hooks/useCart";
 import Loader from "../Loader";
+import Link from "next/link";
 interface IProps {
   setTheme: (value: string) => void;
   theme: string;
@@ -22,10 +23,6 @@ const navList = [
   {
     title: "About",
     url: "/about",
-  },
-  {
-    title: "Contact",
-    url: "/contact",
   },
 ];
 const Header = ({ setTheme, theme }: IProps) => {
@@ -50,23 +47,46 @@ const Header = ({ setTheme, theme }: IProps) => {
 
   return (
     <div className="flex items-center justify-between px-8 h-[100px] border-b-[1px] border-gray-400">
-      <div
-        className="text-green-600 text-xl cursor-pointer"
-        onClick={() => router.push("/")}
-      >
-        TrazStore
+      <div className="flex items-center gap-2 ">
+        <BsTextLeft
+          className="text-2xl lg:hidden"
+          onClick={() => setIsOpen(true)}
+        />
+        <div
+          className="text-green-600 text-xl cursor-pointer"
+          onClick={() => router.push("/")}
+        >
+          TrazStore
+        </div>
       </div>
-      <nav></nav>
+
+      <nav className="hidden lg:block">
+        <ul className="flex items-center gap-10">
+          <Link href={"/"} className="hover:text-green-400">
+            Home
+          </Link>
+          <Link href={"/products"} className="text:bg-green-400">
+            Product
+          </Link>
+          <Link href={"/about"} className="hovertext-green-400">
+            About
+          </Link>
+        </ul>
+      </nav>
       {isOpen && (
         <nav>
-          <ul className="menu text-lg bg-base-100 w-full  fixed md:hidden h-screen top-0 left-0 py-20 z-10">
+          <ul className="menu px-10 text-lg bg-base-100 w-full  fixed md:hidden h-screen top-0 left-0 py-20 z-10">
             <BsXLg
               className="fixed right-8 top-8 text-xl text-red-500"
               onClick={() => setIsOpen(false)}
             />
             {navList.map(({ title, url }, i) => {
               return (
-                <li key={i} className="pl-5 text-base hover:bordered">
+                <li
+                  key={i}
+                  className="pl-5 text-base hover:bordered"
+                  onClick={() => setIsOpen(false)}
+                >
                   <a href={url}>{title}</a>
                 </li>
               );
@@ -75,21 +95,22 @@ const Header = ({ setTheme, theme }: IProps) => {
         </nav>
       )}
       <div className="flex items-center gap-4">
-        {" "}
         <button
           className="btn py-1 text-[12px]"
-          onClick={() => dispatch({ type: "logout" })}
+          onClick={() => {
+            dispatch({ type: "logout" });
+            router.push("/signin");
+          }}
         >
           {user ? "logout" : <a href="/signin">Login</a>}
         </button>
-        <BsTextLeft className="text-2xl" onClick={() => setIsOpen(true)} />
         <a className="relative  w-6 h-6" href="/carts">
           <BsCart className="w-6 h-6" />
           <div className="animate-pulse text-[12px] h-4 w-4 rounded-full bg-red-400 text-white absolute bottom-[-8px] right-[-4px] flex justify-center items-center">
-            {cartDoc?.length}
+            {!cartDoc ? "0" : cartDoc?.length}
           </div>
         </a>
-        {/* <ThemeIcon setTheme={setTheme} theme={theme} /> */}
+        <ThemeIcon setTheme={setTheme} theme={theme} />
       </div>
     </div>
   );
@@ -99,7 +120,7 @@ export default Header;
 
 const ThemeIcon = ({ setTheme, theme }: IProps) => {
   return (
-    <label className="swap swap-rotate  w-8 h-8 rounded-full bg-gray-100">
+    <label className="swap swap-rotate  w-8 h-8 rounded-full bg-gray-100 hidden lg:grid">
       <input
         type="checkbox"
         onChange={(e) =>

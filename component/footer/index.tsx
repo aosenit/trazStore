@@ -5,14 +5,22 @@ const Footer = () => {
     <footer className="footer p-10 bg-base-200 text-base-content">
       <div>
         <span className="footer-title">Company</span>
-        <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact us</a>
+        <a className="link link-hover" href="/about">
+          About us
+        </a>
+        {/* <a className="link link-hover" href="/contact">
+          Contact us
+        </a>
 
-        <a className="link link-hover">Blog</a>
+        <a className="link link-hover" href="/blog">
+          Blog
+        </a> */}
       </div>
       <div>
         <span className="footer-title">Legal</span>
-        <a className="link link-hover">Shipping policy</a>
+        <a className="link link-hover" href="/shopping">
+          Shipping policy
+        </a>
       </div>
 
       <div>

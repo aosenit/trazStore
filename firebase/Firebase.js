@@ -12,6 +12,11 @@ import {
   addDoc,
   query,
   where,
+  doc,
+  deleteDoc,
+  onSnapshot,
+  updateDoc,
+  setDoc,
 } from "firebase/firestore";
 
 // Your web app's Firebase configuration
@@ -40,4 +45,9 @@ export {
   addDoc,
   query,
   where,
+  doc,
+  deleteDoc,
+  onSnapshot,
+  updateDoc,
+  setDoc,
 };

@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { collection, getDocs, db, query, where } from "../firebase/Firebase";
+import {
+  collection,
+  getDocs,
+  db,
+  query,
+  where,
+  deleteDoc,
+} from "../firebase/Firebase";
 
 const useCart = () => {
   const [loading, setLoading] = useState(false);
@@ -23,7 +30,30 @@ const useCart = () => {
       setLoading(false);
     }
   };
-  return { getCart, loading };
+
+  async function deleteCart(
+    uid: string,
+    setCartData: (cartData: any[]) => void
+  ) {
+    setLoading(true);
+    try {
+      const q = query(collection(db, "cart"), where("userId", "==", uid));
+      const querySnapshot = await getDocs(q);
+
+      querySnapshot.forEach((doc) => {
+        const docRef = doc.ref;
+        deleteDoc(docRef);
+      });
+      const updatedCartData = await getCart(uid);
+      setCartData(updatedCartData);
+    } catch (error: any) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return { getCart, deleteCart, loading };
 };
 
 export default useCart;

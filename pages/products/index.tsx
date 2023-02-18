@@ -73,7 +73,7 @@ const Products = () => {
   });
 
   return (
-    <div className="my-6 mx-8">
+    <div className="my-6 mx-8 pt-[100px]">
       <div
         className="my-4 w-full overflow-x-scroll flex gap-3 items-center  
       "
