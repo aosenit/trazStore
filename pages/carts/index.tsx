@@ -50,7 +50,7 @@ const Carts = () => {
   return (
     <section className="pt-[100px] mb-10 md:my-20">
       <div className="mx-8 md:w-[60%] md:mx-auto">
-        <div className="flex justify-between items-center my-6">
+        <div className="flex justify-between items-center my-10">
           <h3 className="text-2xl">Your Cart</h3>
           <p
             onClick={() => router.push("/products")}
@@ -75,14 +75,14 @@ const Carts = () => {
                   <img
                     src={cart.src}
                     alt="cart image"
-                    className="w-[100px] h-[70px] "
+                    className="w-[50px] h-[50px] object-cover"
                   />
-                  <p className="text-[14px]">{cart?.name}</p>
+                  <p className="text-[12px]">{cart?.name}</p>
                 </div>
-                <h3 className="text-lg  ">
+                <h3 className="text-[14px]  ">
                   <span>{cart.quantity}</span>
                 </h3>
-                <h3 className="text-xl">
+                <h3 className="text-[14px]">
                   $
                   {(Math.round(cart.price * cart.quantity * 100) / 100).toFixed(
                     2
@@ -104,7 +104,7 @@ const Carts = () => {
             Taxes and shipping calculated at checkout
           </p>
           <button
-            className="my-2 w-full px-5 py-4 bg-black text-white transition hover:bg-gray-900 md:w-[300px] cursor-pointer"
+            className="my-2 w-full px-5 py-3 bg-black text-white transition hover:bg-gray-900 md:w-[300px] cursor-pointer"
             onClick={() => {
               deleteCart(user?.uid, setCartDoc);
               router.push("/checkout");
